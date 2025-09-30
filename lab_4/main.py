@@ -2,14 +2,15 @@
 from telegram import Update, ReplyKeyboardMarkup, KeyboardButton # pyright: ignore[reportMissingImports]
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes  # pyright: ignore[reportMissingImports]
 
-BOT_TOKEN = "8191456089:AAFD_4h2BG_EO21P_N1IUcnTV80vMbQLhW4"
+with open('token.txt', 'r') as f:
+    BOT_TOKEN = f.read().strip()
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     buttons = [
         [KeyboardButton("Кнопка 1"), KeyboardButton("Кнопка 2")],
         [KeyboardButton("Кнопка 3")]
     ]
-    
+
     keyboard = ReplyKeyboardMarkup(buttons, resize_keyboard=True)
 
     await update.message.reply_text("Выберите кнопку:", reply_markup=keyboard)
