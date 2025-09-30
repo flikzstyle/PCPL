@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler
+from telegram import Update, ReplyKeyboardMarkup, KeyboardButton # pyright: ignore[reportMissingImports]
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler # pyright: ignore[reportMissingImports]
 
 START, MENU, CALCULATOR, CONVERTER = range(4)
 
@@ -176,7 +176,8 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
 
-    BOT_TOKEN = "8191456089:AAFD_4h2BG_EO21P_N1IUcnTV80vMbQLhW4"
+    with open('token.txt', 'r') as f:
+        BOT_TOKEN = f.read().strip()
 
     app = Application.builder().token(BOT_TOKEN).build()
 
