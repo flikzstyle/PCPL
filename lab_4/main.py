@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
-from telegram import Update, ReplyKeyboardMarkup, KeyboardButton # pyright: ignore[reportMissingImports]
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes  # pyright: ignore[reportMissingImports]
+from telegram import Update, ReplyKeyboardMarkup, KeyboardButton 
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes  
 
 with open('token.txt', 'r') as f:
     BOT_TOKEN = f.read().strip()
@@ -19,13 +18,13 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
 
     if text == "Кнопка 1":
-        await update.message.reply_text("Вы нажали кнопку 1! ✅")
+        await update.message.reply_text("Вы нажали кнопку 1!")
     elif text == "Кнопка 2":
-        await update.message.reply_text("Вы нажали кнопку 2! ✅")
+        await update.message.reply_text("Вы нажали кнопку 2!")
     elif text == "Кнопка 3":
-        await update.message.reply_text("Вы нажали кнопку 3! ✅")
+        await update.message.reply_text("Вы нажали кнопку 3!")
     else:
-        await update.message.reply_text("Используйте кнопки ниже 👇")
+        await update.message.reply_text("Используйте кнопки ниже")
 
 def main():
     app = Application.builder().token(BOT_TOKEN).build()

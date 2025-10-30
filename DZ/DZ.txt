@@ -1,0 +1,2 @@
+проект ДЗ находится в данном репозитории 
+https://github.com/egorpin/hackaton-iu5
